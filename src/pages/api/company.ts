@@ -30,7 +30,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(200).json(announcements);
     } 
   }
-  catch (error) {
-    res.status(500).json({ message: error.message });
+  catch (error: any) { // Type assertion here to handle 'unknown'
+    console.error('Error occurred:', error);
+    res.status(500).json({ message: error.message || 'An internal server error occurred.' });
   }
 }
