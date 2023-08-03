@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     if (typeof(queryvalues) !== "string" ) {
     
-      const convertedArray = queryvalues.map((value) => parseInt(value));
+      const convertedArray = queryvalues.map((value) => Number(value));
       const announcements = await collection
         .find({ SCRIP_CD: { $in : convertedArray} })
         .toArray();

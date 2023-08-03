@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       start_date = new Date(start_date)
       end_date = new Date(end_date)
-      
+
       const announcements = await collection
       .find({ "DT_TM": { "$gte" : start_date , "$lte": end_date} })
       .toArray();
@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (scrip_cd) {
       if (typeof(scrip_cd) !== "string"){
 
-        const convertedArray = scrip_cd.map((value) => parseInt(value));
+        const convertedArray = scrip_cd.map((value) => Number(value));
 
         const announcements = await collection
         .find({ SCRIP_CD: { $in : convertedArray } })
