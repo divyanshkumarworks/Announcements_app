@@ -1,6 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '../../../libs/mongodb';
 
+const isStringArray = (value: any): value is string[] =>
+  Array.isArray(value) && value.every((item) => typeof item === 'string');
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { start_date, end_date, scrip_cd } = req.query;
 
@@ -20,6 +23,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(200).json(announcements);
     }
     if (scrip_cd) {
+      if (!scrip_cd || !isStringArray(scrip_cd)) {
+        return res.status(400).json({ error: 'Invalid array provided in query parameters.' });
+      }
       if (typeof(scrip_cd) !== "string"){
 
         const convertedArray = scrip_cd.map((value) => Number(value));
