@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '../../../libs/mongodb';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  var queryvalues = req.query.scrip_cd;
+  const queryvalues = req.query.scrip_cd;
 
   const { db } = await connectToDatabase();
   const collection = db.collection('company_announcements');

@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDatabase } from '../../../libs/mongodb';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  var { start_date, end_date, scrip_cd } = req.query;
+  const { start_date, end_date, scrip_cd } = req.query;
 
   try {
     const { db } = await connectToDatabase();
@@ -10,11 +10,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (start_date && end_date) {
 
-      start_date = new Date(start_date)
-      end_date = new Date(end_date)
+      const new_start_date = new Date(start_date)
+      const new_end_date = new Date(end_date)
 
       const announcements = await collection
-      .find({ "DT_TM": { "$gte" : start_date , "$lte": end_date} })
+      .find({ "DT_TM": { "$gte" : new_start_date , "$lte": new_end_date} })
       .toArray();
 
       res.status(200).json(announcements);
