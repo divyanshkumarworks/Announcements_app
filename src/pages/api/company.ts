@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const { db } = await connectToDatabase();
   const collection = db.collection('company_announcements');
   try {
-    if (typeof(queryvalues) === "object" ) {
+    if (typeof(queryvalues) !== "string" ) {
     
       const convertedArray = queryvalues.map((value) => parseInt(value));
       const announcements = await collection
