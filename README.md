@@ -3,7 +3,7 @@
 This is a [Next.js](https://nextjs.org/) project created with MongoDB as Database.
 
 ### Demo 
-[http://localhost:3000](http://localhost:3000)
+[https://announcements-app.vercel.app/](https://announcements-app.vercel.app/)
 
 ## Getting Started
 
