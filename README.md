@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Announcement-App
+
+This is a [Next.js](https://nextjs.org/) project created with MongoDB as Database.
 
 ## Getting Started
 
@@ -14,9 +16,14 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## API Endpoints
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The following API endpoints are available:
+
+1. `GET /api/company?scrip_cd=<SCRIP_CD>` API to find announcements of a company(SCRIP_CD) or multiple companies.
+2. `GET /api/special_period?start_date=<START_DATE>&end_date=<END_DATE>` API to find announcements over a specified period (start & end dates) or announcements of a company/group of companies over a period.
+3. `GET /api/critical` API to find all the critical announcements or critical announcements of a list of companies over a given period.
+4. `GET /api/past_two_days` API to retrieve announcements from the past 1-2 days in descending time order.
 
 ## Learn More
 
