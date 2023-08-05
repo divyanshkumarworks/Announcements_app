@@ -7,7 +7,12 @@ This is a [Next.js](https://nextjs.org/) project created with MongoDB as Databas
 
 ## Getting Started
 
-First, run the development server:
+clone the repository
+```bash
+https://github.com/divyanshkumarworks/Announcements_app.git
+```
+
+run the development server:
 
 ```bash
 npm run dev
